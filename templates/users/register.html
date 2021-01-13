@@ -1,11 +1,11 @@
-{% extends '_base.html' %}
-{% load crispy_forms_tags %}
+{% extends '_base.html' %} 
+{% load crispy_forms_tags %} 
 {% block content %}
 <div class="container">
   <form action="" method="POST">
     {% csrf_token %}
     <fieldset class="form-group">
-      <legend class="border-bottom mb-4">Join Today</legend>
+      <legend class="border-bottom mb-5">Join Today</legend>
       {{ form | crispy }}
     </fieldset>
     <div class="form-group">
@@ -15,9 +15,12 @@
   <div class="border-top pt-3">
     <small class="text-muted"
       >Already have an account?
-      <a href="#" class="ml-2">Sign In</a>
-      <a href="#" class="ml-2">Google</a>
-      <!-- insert google button here -->
+      <a href="{% url 'login' %}" class="ml-2">Sign In</a>
+      <p>or sign in with</p>
+      <!-- <a href="#" class="ml-2">Google</a> -->
+      <button type="button" class="btn btn-danger gplus">
+        <i class="fa fa-google"></i> Google
+      </button>
     </small>
   </div>
 </div>

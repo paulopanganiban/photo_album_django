@@ -12,7 +12,15 @@
   </head>
   <body class="base">
     <!-- _Navbar.html -->
-    {% include '_navbar.html' %} {% block content %} {% endblock %}
+
+    {% include '_navbar.html' %} 
+
+    <!-- {% if messages %} {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %} {% endif %} -->
+
+    {% block content %} 
+    {% endblock %}
   </body>
   <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

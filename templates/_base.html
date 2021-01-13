@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>DuramOlo Photo Album</title>
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'favicon.png' %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
  
@@ -15,9 +16,9 @@
 
     {% include '_navbar.html' %} 
 
-    <!-- {% if messages %} {% for message in messages %}
+    {% if messages %} {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-    {% endfor %} {% endif %} -->
+    {% endfor %} {% endif %}
 
     {% block content %} 
     {% endblock %}

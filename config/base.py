@@ -62,6 +62,7 @@ MIDDLEWARE = [
 ]
 SITE_ID = 1
 ROOT_URLCONF = 'photo_album_project.urls'
+LOGIN_URL = 'login'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

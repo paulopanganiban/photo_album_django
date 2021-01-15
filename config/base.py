@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'photo_album_project.users.apps.UsersConfig',
     'photo_album_project.photos',
-    'photo_album_project.users',
     'crispy_forms',
 ]
 
@@ -123,6 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# global auth guard
 LOGIN_REDIRECT_URL = 'homepage'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (

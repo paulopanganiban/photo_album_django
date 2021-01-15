@@ -27,6 +27,7 @@
 
       <li class="nav-item ml-auto">
         {% if user.is_authenticated %}
+        <img src="{{ user.profile.image.url }}" style="height: 40px" alt="..." class="img-thumbnail">
         <a class="btn btn-info px=3" href="{% url 'profile' %}" role="button"
         >Profile</a
       >

@@ -13,14 +13,13 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2',]
 
 class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField() # default | required=True
     
     # specify which model we want to interact/edit
     class Meta:
         model = User
         # input to be shown in order 
         # User.username
-        fields = ['username', 'email',]
+        fields = ['first_name', 'last_name',]
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:

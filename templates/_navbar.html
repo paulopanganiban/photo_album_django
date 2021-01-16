@@ -16,21 +16,31 @@
     <span class="navbar-toggler-icon"> </span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'photos:dashboard' %}">Dashboard</a>
+        </li>
         <!-- 
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>
         </li>  -->
       </li>
-
+    </ul>
+    
       <li class="nav-item ml-auto">
         {% if user.is_authenticated %}
-        <img src="{{ user.profile.image.url }}" style="height: 40px" alt="..." class="img-thumbnail">
+        <a href="{% url 'profile' %}"
+          ><img
+            src="{{ user.profile.image.url }}"
+            style="height: 40px"
+            alt="..."
+            class="img-thumbnail"
+        /></a>
         <a class="btn btn-info px=3" href="{% url 'profile' %}" role="button"
-        >Profile</a
-      >
+          >Profile</a
+        >
         <a class="btn btn-info px=3" href="{% url 'logout' %}" role="button"
           >Logout</a
         >
@@ -43,6 +53,5 @@
         >
         {% endif %}
       </li>
-    </ul>
   </div>
 </nav>

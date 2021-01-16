@@ -15,7 +15,7 @@ from autoslug import AutoSlugField
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    slug = AutoSlugField(populate_from='title')
+    # slug = AutoSlugField(populate_from='title', unique=True, always_update=False)
     date_posted = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='photo_gallery')
     def __str__(self):

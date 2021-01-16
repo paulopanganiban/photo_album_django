@@ -1,4 +1,7 @@
-{% block content %}
+
+{% load static %} {% block content %}
+<h4>use flex box for photo gallery</h4>
+<h4>pass the context here</h4>
 <div class="shadow p-3 mb-5 bg-white rounded">
   <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
     <li class="nav-item">
@@ -45,8 +48,27 @@
       role="tabpanel"
       aria-labelledby="home-tab"
     >
-      Home todo: { include 'photos.html' }
+    asd
+      {% for photo in photos %}
+      <article class="media content-section">
+        <img
+          class="rounded-circle article-img"
+          src="{{ photo.author.profile.image.url }}"
+        />
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ photo.author }}</a>
+            <small class="text-muted"
+              >{{ photo.date_posted|date:"F d, Y" }}</small
+            >
+            <img src="{{ photo.image.url }}" alt="..." class="img-thumbnail" />
+          </div>
+          <h2><a class="article-title" href="#">{{ photo.title }}</a></h2>
+        </div>
+      </article>
+      {% endfor %}
     </div>
+
     <div
       class="tab-pane fade"
       id="profile"
@@ -55,6 +77,7 @@
     >
       Newest: { photos.html sorted by date [:] ewan ascending }
     </div>
+
     <div
       class="tab-pane fade"
       id="contact"
@@ -64,5 +87,7 @@
       Popular: { photos.html sort by downloads }
     </div>
   </div>
+
 </div>
+
 {% endblock content %}

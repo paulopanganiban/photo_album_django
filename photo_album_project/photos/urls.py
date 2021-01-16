@@ -1,7 +1,10 @@
 from django.urls import path
 from . import views
+from .views import PostListView, PostDashboardListView
 app_name = "photos"
 
 urlpatterns = [
-    path('', views.dashboard, name='dashboard'),
+    path('', PostDashboardListView.as_view(), name='dashboard'),
 ]
+
+# <app>/<model>_<viewtype>.html

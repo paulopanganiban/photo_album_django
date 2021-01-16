@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from photo_album_project.users import views as user_views
 from django.urls import path, include
+from .views import PostListView
 # import photo_album_project views.py
 from . import views
 urlpatterns = [
@@ -29,7 +30,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='index/homepage.html'), name='logout'),
     path('photo/', include('photo_album_project.photos.urls')),
-    path('', views.homepage, name='homepage'),
+    path('', PostListView.as_view(), name='homepage'),
 ] 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

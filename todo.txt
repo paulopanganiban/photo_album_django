@@ -1,1 +1,6 @@
-CRUD photos
+CRUD photos\
+
+slugify
+categories table
+views
+downloads

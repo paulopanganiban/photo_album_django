@@ -7,11 +7,17 @@
     background-size: cover;
     background-position: center;
   }
-  @media screen and (max-width:768px){
-  h1{
-     font-size:2em;
-  }    
-}
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2em;
+    }
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 </style>
 <section class="banner">
   <div class="container d-flex align-items-center justify-content-center">
@@ -44,8 +50,6 @@
   </div>
 </section>
 <!-- {% include 'photos/photos.html' %} -->
-<h4>use flex box for photo gallery</h4>
-<h4>pass the context here</h4>
 <div class="shadow p-3 mb-5 bg-white rounded">
   <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
     <li class="nav-item">
@@ -92,25 +96,23 @@
       role="tabpanel"
       aria-labelledby="home-tab"
     >
-    asd
-      {% for photo in photos %}
-      <article class="media content-section">
-        <img
-          class="rounded-circle article-img"
-          src="{{ photo.author.profile.image.url }}"
-        />
-        <div class="media-body">
-          <div class="article-metadata">
-            <a class="mr-2" href="#">{{ photo.author }}</a>
-            <small class="text-muted"
-              >{{ photo.date_posted|date:"F d, Y" }}</small
-            >
-            <img src="{{ photo.image.url }}" alt="..." class="img-thumbnail" />
+      <h4>
+        modal on click, view the picture, put details: title, views, downloads,
+        download button
+      </h4>
+      <div class="container-fluid">
+        <div class="row">
+          {% for photo in photos|dictsortreversed:"date_posted" %}
+          <div class="col-md-6 my-2">
+            <img
+              src="{{ photo.image.url }}"
+              alt="..."
+              class="img-fluid img-thumbnail"
+            />
           </div>
-          <h2><a class="article-title" href="#">{{ photo.title }}</a></h2>
+          {% endfor %}
         </div>
-      </article>
-      {% endfor %}
+      </div>
     </div>
 
     <div
@@ -119,7 +121,20 @@
       role="tabpanel"
       aria-labelledby="profile-tab"
     >
-      Newest: { photos.html sorted by date [:] ewan ascending }
+      Newest: { photos.html sort by date }
+      <div class="container-fluid">
+        <div class="row">
+          {% for photo in photos|dictsort:"date_posted" %}
+          <div class="col-md-6 my-2">
+            <img
+              src="{{ photo.image.url }}"
+              alt="..."
+              class="img-fluid img-thumbnail"
+            />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
 
     <div
@@ -129,13 +144,21 @@
       aria-labelledby="contact-tab"
     >
       Popular: { photos.html sort by downloads }
+      temporarily sorted by a-z
+      <div class="container-fluid">
+        <div class="row">
+          {% for photo in photos|dictsort:"title" %}
+          <div class="col-md-6 my-2">
+            <img
+              src="{{ photo.image.url }}"
+              alt="..."
+              class="img-fluid img-thumbnail"
+            />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
-
-
-
-
-
 {% endblock content %}

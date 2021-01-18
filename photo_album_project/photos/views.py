@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 # Create your views here.
 def dashboard(request):
     context = {
@@ -14,8 +14,5 @@ class PostDashboardListView(ListView):
     # <app>/<model>_<viewtype>.html
     context_object_name = 'photos'
 
-class PostListView(ListView):
+class PostDashboardDetailView(DetailView):
     model = Post
-    template_name= 'index/homepage.html'
-    # <app>/<model>_<viewtype>.html
-    context_object_name = 'photos'

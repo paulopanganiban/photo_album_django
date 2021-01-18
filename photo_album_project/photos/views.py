@@ -16,3 +16,4 @@ class PostDashboardListView(ListView):
 
 class PostDashboardDetailView(DetailView):
     model = Post
+    template_name = 'photos/detail.html'

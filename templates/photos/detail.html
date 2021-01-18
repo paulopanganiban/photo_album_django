@@ -1,0 +1,7 @@
+{% extends '_base.html' %} {% block content %}
+<p>{{ object.author }}</p>
+<img src="{{ object.image.url }}" alt="..." class="img-fluid img-thumbnail" />
+<p>{{ object.date_posted|date:"F d, Y" }}</p>
+<p>{{ object.title }}</p>
+<p>{{ object.slug }}</p>
+{% endblock content %}

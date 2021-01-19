@@ -1,21 +1,15 @@
-{% extends '_base.html' %}
-{% load static %}
-{% block content %}
-    <div class="container">
-        <h1>TODO: Filter objects only by logged in user</h1>
-        {% for photo in photos %}
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ photo.author.profile.image.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ photo.author }}</a>
-              <small class="text-muted">{{ photo.date_posted|date:"F d, Y" }}</small>
-              <img src="{{ photo.image.url }}" alt="..." class="img-thumbnail">
-            </div>
-            <h2><a class="article-title" href="#">{{ photo.title }}</a></h2>
-          </div>
-        </article>
-    {% endfor %}
+{% extends '_base.html' %} {% load static %} {% block content %}
+<div class="container">
+  <div class="row">
+    {% for photo in photos %}
+    <div class="card mr-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ photo.title }}</h5>
+        <p class="card-text"><img src="{{ photo.image.url }}" alt="..." class="img-thumbnail"></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
     </div>
+
+  {% endfor %}
+</div>
 {% endblock content %}
-    

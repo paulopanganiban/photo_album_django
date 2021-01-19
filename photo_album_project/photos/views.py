@@ -16,7 +16,7 @@ def dashboard(request):
     }
     return render(request, 'photos/dashboard.html', context)
 
-
+@method_decorator(login_required, name='dispatch')
 class PostDashboardListView(ListView):
     model = Post
     template_name = 'photos/dashboard.html'

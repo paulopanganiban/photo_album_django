@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'photo_album_project.users.apps.UsersConfig',
     'photo_album_project.photos',
     'crispy_forms',
+    'bootstrap_modal_forms',
 ]
 
 MIDDLEWARE = [

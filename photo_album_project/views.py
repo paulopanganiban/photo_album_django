@@ -17,11 +17,6 @@ def about(request):
     return render(request, 'about.html')
 
 # Create your views here.
-def dashboard(request):
-    context = {
-        'photos': Post.objects.all()
-    }
-    return render(request, 'photos/dashboard.html', context)
 
 class PostListView(ListView):
     model = Post

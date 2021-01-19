@@ -104,14 +104,14 @@
         <div class="row">
           {% for photo in photos|dictsortreversed:"date_posted" %}
           <a href="{% url 'photos:detail' photo.slug %}">
-          <div class="col-md-6 my-2">
-            <img
-              src="{{ photo.image.url }}"
-              alt="..."
-              class="img-fluid img-thumbnail"
-            />
-          </div>
-        </a>  
+            <div class="col-md-6 my-2">
+              <img
+                src="{{ photo.image.url }}"
+                alt="..."
+                class="img-fluid img-thumbnail"
+              />
+            </div>
+          </a>
           {% endfor %}
         </div>
       </div>
@@ -123,8 +123,6 @@
       role="tabpanel"
       aria-labelledby="profile-tab"
     >
-    
-   
       Newest: { photos.html sort by date }
       <div class="container-fluid">
         <div class="row">
@@ -147,8 +145,7 @@
       role="tabpanel"
       aria-labelledby="contact-tab"
     >
-      Popular: { photos.html sort by downloads }
-      temporarily sorted by a-z
+      Popular: { photos.html sort by downloads } temporarily sorted by a-z
       <div class="container-fluid">
         <div class="row">
           {% for photo in photos|dictsort:"title" %}

@@ -1,15 +1,26 @@
 {% extends '_base.html' %} {% load static %} {% block content %}
-<div class="container">
+<!-- <div class="container">
   <div class="row">
-    {% for photo in photos %}
-    <div class="card mr-2" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{ photo.title }}</h5>
-        <p class="card-text"><img src="{{ photo.image.url }}" alt="..." class="img-thumbnail"></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+    <div class="col-sm">
+      <h1>put task pane here?</h1>
+      <p>refer to this link: https://webapphuddle.com/wp-content/uploads/2016/11/photolytics.jpg</p>
     </div>
+    <div class="col-sm">
+      {% for photo in photos %}
+      <div class="card mr-2" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ photo.title }}</h5>
+          <p class="card-text">
+            <img src="{{ photo.image.url }}" alt="..." class="img-thumbnail" />
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
 
-  {% endfor %}
+      {% endfor %}
+    </div>
+  </div> -->
+
+
+  {% endblock content %}
 </div>
-{% endblock content %}

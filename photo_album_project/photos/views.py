@@ -7,6 +7,7 @@ from django.views.generic import (
     )
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -34,5 +35,6 @@ class PostDashboardCreateView(CreateView):
     fields = ['title', 'image']
 
     def form_valid(self, form):
-        form.instance.author = self.request
+        
+        form.instance.author = self.request.user
         return super().form_valid(form)

@@ -1,7 +1,15 @@
 {% extends '_base.html' %} {% block content %}
-<p>{{ object.author }}</p>
-<img src="{{ object.image.url }}" alt="..." class="img-fluid img-thumbnail" />
-<p>{{ object.date_posted|date:"F d, Y" }}</p>
-<p>{{ object.title }}</p>
-<p>{{ object.slug }}</p>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <img
+        src="{{ object.image.url }}"
+        alt="..."
+        class="img-fluid img-thumbnail"
+        style="max-height: 12em"
+      />
+    </div>
+  </div>
+</div>
 {% endblock content %}

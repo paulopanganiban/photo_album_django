@@ -1,16 +1,36 @@
-{% extends '_base.html' %} {% load crispy_forms_tags %}{% load socialaccount %}
-{% block content %}
+{% extends '_base.html' %} {% load crispy_forms_tags %} {% block content %}
 <div class="container">
-  <form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <fieldset class="form-group">
-      <legend class="border-bottom mb-5">Upload an image</legend>
-      {{ form | crispy }}
-    </fieldset>
-    <div class="form-group">
-      <button class="btn btn-outline-info" type="submit">Submit</button>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          {% if object %}
+          <legend class="border-bottom mb-5">Update</legend>
+          <img
+          src="{{ object.image.url }}"
+          alt="..."
+          class="img-fluid img-thumbnail mb-2"
+          style="max-height: 12em"
+        />
+          {% else %}
+          <legend class="border-bottom mb-5">Upload a new photo</legend>
+          {% endif %}
+   
+          {{ form | crispy }}
+        </fieldset>
+        {% if object %}
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+        {% else %}
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Create</button>
+        </div>
+        {% endif %}
+      </form>
     </div>
-  </form>
+  </div>
 </div>
 
 {% endblock content %}

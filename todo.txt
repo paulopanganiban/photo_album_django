@@ -1,6 +1,1 @@
-CRUD photos\
-
-slugify
-categories table
-views
-downloads
+finish dashboard and modal TODAY

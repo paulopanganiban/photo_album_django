@@ -1,21 +1,25 @@
 {% extends '_base.html' %} {% load static %} {% block content %}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm">
+<div class="container">
+  <table data-toggle="table" data-pagination="true" data-search="true">
+    <thead>
+      <tr>
+        <th data-sortable="true">ID</th>
+        <th data-sortable="true">Title</th>
+        <th data-sortable="true">Date Posted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- dito yung value and for loop -->
       {% for photo in photos %}
-      <div class="card mr-2" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title">{{ photo.title }}</h5>
-          <p class="card-text">
-            <img src="{{ photo.image.url }}" alt="..." class="img-thumbnail" />
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
+      <tr>
+        <td>{{ photo.id }}</td>
+        <td>{{ photo.title }}</td>
+        <td>{{ photo.date_posted}}</td>
+      </tr>
       {% endfor %}
-    </div>
-  </div>
-  
-  {% endblock content %}
+    </tbody>
+  </table>
 </div>
+
+
+{% endblock content %}

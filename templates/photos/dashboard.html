@@ -1,11 +1,16 @@
 {% extends '_base.html' %} {% load static %} {% block content %}
 <div class="container">
+  <h4>Your uploads</h4>
   <table data-toggle="table" data-pagination="true" data-search="true">
     <thead>
       <tr>
         <th data-sortable="true">ID</th>
         <th data-sortable="true">Title</th>
         <th data-sortable="true">Date Posted</th>
+        <th data-sortable="true">Image Thumbnail</th>
+        <th>View</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -15,11 +20,35 @@
         <td>{{ photo.id }}</td>
         <td>{{ photo.title }}</td>
         <td>{{ photo.date_posted}}</td>
+        <td>
+          <div class="text-center">
+            <img
+              src="{{ photo.image.url }}"
+              class="rounded"
+              style="max-height: 20px"
+              alt="..."
+            />
+          </div>
+        </td>
+        <td class="text-center">
+          <a href="{% url 'photos:detail' photo.slug %}" class="btn btn-success"
+            ><i class="fa fa-eye" aria-hidden="true"></i
+          ></a>
+        </td>
+        <td class="text-center">
+          <a href="{% url 'photos:update' photo.slug %}" class="btn btn-primary"
+            ><i class="fa fa-pencil" aria-hidden="true"></i
+          ></a>
+        </td>
+        <td class="text-center">
+          <a href="{% url 'photos:delete' photo.slug %}" class="btn btn-danger"
+            ><i class="fa fa-trash" aria-hidden="true"></i
+          ></a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
-
 
 {% endblock content %}

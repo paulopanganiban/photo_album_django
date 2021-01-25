@@ -1,6 +1,26 @@
 {% extends '_base.html' %} {% load static %} {% block content %}
 <div class="container">
-  <h4>Your uploads</h4>
+  <div class="row">
+    <div class="col">
+      <h4>Your uploads</h4>
+    </div>
+
+    <div class="col justify-left">
+      <button class="btn btn-primary">Upload</button>
+
+
+      <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content"></div>
+        </div>
+      </div>
+      
+      <!-- Create book button -->
+      <button id="create-book" class="btn btn-primary" type="button" name="button">Create book</button>
+
+
+    </div>
+  </div>
   <table data-toggle="table" data-pagination="true" data-search="true">
     <thead>
       <tr>
@@ -50,5 +70,7 @@
     </tbody>
   </table>
 </div>
+
+
 
 {% endblock content %}

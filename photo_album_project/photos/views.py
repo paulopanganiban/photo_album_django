@@ -11,16 +11,14 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import TestModelForm
-from bootstrap_modal_forms.generic import BSModalCreateView
+from bootstrap_modal_forms.generic import BSModalCreateView, BSModalFormView, BSModalReadView
 from django.urls import reverse_lazy
 # Create your views here.
 
 # test bs modal form
-class TestCreateView(BSModalCreateView):
+class TestReadView(BSModalReadView):
+    model = Post
     template_name = 'photos/test.html'
-    form_class = TestModelForm
-    success_message = 'Success: test was created'
-    success_url = reverse_lazy('homepage')
 
 def dashboard(request):
     context = {

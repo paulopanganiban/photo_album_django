@@ -34,22 +34,22 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
-    
-<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
     <script
       src="https://kit.fontawesome.com/91c22fa583.js"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-      
-          $("#create-book").modalForm({
-              formURL: "{% url 'photos:test' %}"
-          });
-      
-      });
-      </script>
-      
     <script src="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        // Update, Read and Delete book buttons open modal with id="modal" (default)
+        // The formURL is retrieved from the data of the element
+        $(".bs-modal").each(function () {
+          $(this).modalForm({
+            formURL: $(this).data("form-url"),
+          });
+        });
+      });
+    </script>
   </body>
 </html>

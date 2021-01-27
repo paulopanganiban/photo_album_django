@@ -1,4 +1,5 @@
 {% extends '_base.html' %} {% load static %} {% block content %}
+
 <div class="container">
   <div class="row">
     <div class="col">
@@ -6,7 +7,7 @@
     </div>
 
     <div class="col justify-left">
-      <button class="btn btn-primary">Upload</button>
+      <a href="{% url 'photos:create' %}" class="btn btn-primary">Upload</a>
 
 
       <div class="modal fade" tabindex="-1" role="dialog" id="modal">
@@ -16,7 +17,7 @@
       </div>
       
       <!-- Create book button -->
-      <button id="create-book" class="btn btn-primary" type="button" name="button">Create book</button>
+      <button id="create-book" class="btn btn-primary" type="button" name="button">Create book**</button>
 
 
     </div>
@@ -51,7 +52,10 @@
           </div>
         </td>
         <td class="text-center">
-          <a href="{% url 'photos:detail' photo.slug %}" class="btn btn-success"
+          <button type="button" class="bs-modal read-book btn btn-sm btn-primary" data-form-url="{% url 'photos:test' photo.slug %}">
+            <span class="fa fa-eye"></span>
+          </button>
+          <a href="{% url 'photos:test' photo.slug %}" class="btn btn-success"
             ><i class="fa fa-eye" aria-hidden="true"></i
           ></a>
         </td>

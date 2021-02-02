@@ -96,24 +96,47 @@
       role="tabpanel"
       aria-labelledby="home-tab"
     >
-      <h4>
-        modal on click, view the picture, put details: title, views, downloads,
-        download button
-      </h4>
       <div class="container-fluid">
+        <!-- <div class="row">
+          <div class="col text-center">
+            1 of 2
+          </div>
+          <div class="col text-center">
+            2 of 2
+          </div>
+        </div> -->
+
         <div class="row">
+          {% for photo in photos %}
+          <div class="col my-3 text-center">
+            {{ forloop.counter }}
+            <img
+              src="{{ photo.image.url }}"
+              alt="..."
+              class="img-fluid img-thumbnail"
+              style="max-height: 500px"
+            />
+            {% if forloop.counter|divisibleby:2 %}
+            </div></div><div class='row'>
+              {% else %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <!-- <div class="row">
           {% for photo in photos|dictsortreversed:"date_posted" %}
-          <a href="{% url 'photos:detail' photo.slug %}">
-            <div class="col-md-6 my-2">
+            <a href="{% url 'detail' photo.slug %}">
+            <div class="col my-2">
               <img
                 src="{{ photo.image.url }}"
                 alt="..."
                 class="img-fluid img-thumbnail"
+                style="max-height: 500px"
               />
             </div>
           </a>
           {% endfor %}
-        </div>
+        </div> -->
       </div>
     </div>
 

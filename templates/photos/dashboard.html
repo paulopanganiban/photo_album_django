@@ -1,35 +1,28 @@
 {% extends '_base.html' %} {% load static %} {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div class="row mb-2">
+    <div class="col-10">
       <h4>Your uploads</h4>
     </div>
 
-    <div class="col justify-left">
-      <a href="{% url 'photos:create' %}" class="btn btn-primary">Upload</a>
+    <div class="col-2 justify-left">
+      <a href="{% url 'photos:create' %}" class="btn btn-success">Upload</a>
 
 
-      <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content"></div>
-        </div>
-      </div>
-      
-      <!-- Create book button -->
-      <button id="create-book" class="btn btn-primary" type="button" name="button">Create book**</button>
+     {% include '_modal.html' %}
 
 
     </div>
   </div>
-  <table data-toggle="table" data-pagination="true" data-search="true">
+  <table data-toggle="table" data-pagination="true" data-search="false">
     <thead>
       <tr>
-        <th data-sortable="true">ID</th>
-        <th data-sortable="true">Title</th>
-        <th data-sortable="true">Date Posted</th>
-        <th data-sortable="true">Image Thumbnail</th>
-        <th>View</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Date Posted</th>
+        <th>Image Thumbnail</th>
+        <th>Details</th>
         <th>Update</th>
         <th>Delete</th>
       </tr>
@@ -52,12 +45,9 @@
           </div>
         </td>
         <td class="text-center">
-          <button type="button" class="bs-modal read-book btn btn-sm btn-primary" data-form-url="{% url 'photos:test' photo.slug %}">
+          <button type="button" class="bs-modal btn btn-info" data-form-url="{% url 'photos:test' photo.slug %}">
             <span class="fa fa-eye"></span>
           </button>
-          <a href="{% url 'photos:test' photo.slug %}" class="btn btn-success"
-            ><i class="fa fa-eye" aria-hidden="true"></i
-          ></a>
         </td>
         <td class="text-center">
           <a href="{% url 'photos:update' photo.slug %}" class="btn btn-primary"

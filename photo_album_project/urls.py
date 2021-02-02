@@ -21,7 +21,7 @@ from photo_album_project.users import views as user_views
 from django.urls import path, include
 from .views import PostListView as HomepagePostListView
 # import photo_album_project views.py
-from . import views
+from .views import PostDetailView as HomepagePostDetailView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -30,6 +30,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('photo/', include('photo_album_project.photos.urls')),
+    path('detail/<slug:slug>', HomepagePostDetailView.as_view(), name='detail'),
     path('', HomepagePostListView.as_view(), name='homepage'),
 ] 
 if settings.DEBUG:

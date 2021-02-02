@@ -16,6 +16,7 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 # test bs modal form
+
 class TestReadView(BSModalReadView):
     model = Post
     template_name = 'photos/test.html'

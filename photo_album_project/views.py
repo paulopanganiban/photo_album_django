@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
-
+import json
 from photo_album_project.photos.models import Post
 from django.views.generic import ListView, DetailView
 # Make django know in the settings.py regarding the template file
@@ -23,6 +23,8 @@ class PostListView(ListView):
     template_name= 'index/homepage.html'
     # <app>/<model>_<viewtype>.html
     context_object_name = 'photos'
+
+   
 
 class PostDetailView(DetailView):
     model = Post

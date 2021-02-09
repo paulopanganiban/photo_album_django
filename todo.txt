@@ -1,4 +1,1 @@
-code the landing page
-yung layout na maganda
-
-detail view ng homepage/or gamitan ng modal
+fix search button

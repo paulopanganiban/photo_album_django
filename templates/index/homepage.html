@@ -1,4 +1,5 @@
-{% extends '_base.html' %} {% load static %} {% block content %}
+{% extends '_base.html' %} {% load static %} {% block title %} Homepage 
+{% endblock title %} {% block content %}
 <style>
   .banner {
     position: relative;
@@ -49,7 +50,7 @@
     </div>
   </div>
 </section>
-<!-- {% include 'photos/photos.html' %} -->
+
 <div class="shadow p-3 mb-5 bg-white rounded">
   <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
     <li class="nav-item">
@@ -97,92 +98,77 @@
       aria-labelledby="home-tab"
     >
       <div class="container-fluid">
-        <!-- <div class="row">
-          <div class="col text-center">
-            1 of 2
-          </div>
-          <div class="col text-center">
-            2 of 2
-          </div>
-        </div> -->
-
         <div class="row">
           {% for photo in photos %}
           <div class="col my-3 text-center">
-            {{ forloop.counter }}
-            <img
-              src="{{ photo.image.url }}"
-              alt="..."
-              class="img-fluid img-thumbnail"
-              style="max-height: 500px"
-            />
-            {% if forloop.counter|divisibleby:2 %}
-            </div></div><div class='row'>
-              {% else %}
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-        <!-- <div class="row">
-          {% for photo in photos|dictsortreversed:"date_posted" %}
             <a href="{% url 'detail' photo.slug %}">
-            <div class="col my-2">
               <img
                 src="{{ photo.image.url }}"
                 alt="..."
                 class="img-fluid img-thumbnail"
                 style="max-height: 500px"
               />
-            </div>
-          </a>
-          {% endfor %}
-        </div> -->
-      </div>
-    </div>
-
-    <div
-      class="tab-pane fade"
-      id="profile"
-      role="tabpanel"
-      aria-labelledby="profile-tab"
-    >
-      Newest: { photos.html sort by date }
-      <div class="container-fluid">
-        <div class="row">
-          {% for photo in photos|dictsort:"date_posted" %}
-          <div class="col-md-6 my-2">
-            <img
-              src="{{ photo.image.url }}"
-              alt="..."
-              class="img-fluid img-thumbnail"
-            />
+            </a>
+            {% if forloop.counter|divisibleby:2 %}
           </div>
-          {% endfor %}
         </div>
-      </div>
-    </div>
-
-    <div
-      class="tab-pane fade"
-      id="contact"
-      role="tabpanel"
-      aria-labelledby="contact-tab"
-    >
-      Popular: { photos.html sort by downloads } temporarily sorted by a-z
-      <div class="container-fluid">
-        <div class="row">
-          {% for photo in photos|dictsort:"title" %}
-          <div class="col-md-6 my-2">
-            <img
-              src="{{ photo.image.url }}"
-              alt="..."
-              class="img-fluid img-thumbnail"
-            />
-          </div>
-          {% endfor %}
-        </div>
+        <div class="row">{% else %}</div>
+        {% endif %} {% endfor %}
       </div>
     </div>
   </div>
+
+  <div
+    class="tab-pane fade"
+    id="profile"
+    role="tabpanel"
+    aria-labelledby="profile-tab"
+  >
+    <div class="container-fluid">
+      <div class="row">
+        {% for photo in photos|dictsortreversed:"date_posted" %}
+        <div class="col my-3 text-center">
+          <a href="{% url 'detail' photo.slug %}">
+            <img
+              src="{{ photo.image.url }}"
+              alt="..."
+              class="img-fluid img-thumbnail"
+              style="max-height: 500px"
+            />
+          </a>
+          {% if forloop.counter|divisibleby:2 %}
+        </div>
+      </div>
+      <div class="row">{% else %}</div>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
 </div>
-{% endblock content %}
+
+<div
+  class="tab-pane fade"
+  id="contact"
+  role="tabpanel"
+  aria-labelledby="contact-tab"
+>
+  <div class="container-fluid">
+    <div class="row">
+      {% for photo in photos|dictsort:"title" %}
+      <div class="col my-3 text-center">
+        <a href="{% url 'detail' photo.slug %}">
+          <img
+            src="{{ photo.image.url }}"
+            alt="..."
+            class="img-fluid img-thumbnail"
+            style="max-height: 500px"
+          />
+        </a>
+        {% if forloop.counter|divisibleby:2 %}
+      </div>
+    </div>
+    <div class="row">{% else %}</div>
+    {% endif %} {% endfor %}
+  </div>
+</div>
+
+{% endblock content %} {% block scripts %} {% endblock scripts %}

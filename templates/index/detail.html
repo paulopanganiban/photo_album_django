@@ -1,4 +1,7 @@
 {% extends '_base.html' %} {% block content %}
+
+{% block styles %}
+  
 <style>
   .row > .column {
     padding: 0 8px;
@@ -126,6 +129,8 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 </style>
+{% endblock styles %}
+  
 
 <div class="container">
   <div class="row">
@@ -157,6 +162,7 @@
         src="{{ object.image.url }}"
         onclick="openModal();currentSlide(1)"
         class="hover-shadow"
+        style="max-width: 500px;"
       />
       </p>
     </div>

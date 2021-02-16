@@ -19,7 +19,6 @@ class Post(models.Model):
     slug = AutoSlugField("Photo Address", unique=True, populate_from="title")
     date_posted = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='photo_gallery')
-
     def __str__(self):
         return self.title
     

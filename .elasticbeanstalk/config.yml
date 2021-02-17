@@ -2,6 +2,8 @@ branch-defaults:
   dev:
     environment: photo-album-project
     group_suffix: null
+  development:
+    environment: photo-album-project
 environment-defaults:
   photo-album-project:
     branch: null

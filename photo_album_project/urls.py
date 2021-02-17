@@ -32,6 +32,7 @@ urlpatterns = [
     path('photo/', include('photo_album_project.photos.urls')),
     path('detail/<slug:slug>', HomepagePostDetailView.as_view(), name='detail'),
     path('', HomepagePostListView.as_view(), name='homepage'),
+    path('hitcount/', include(('hitcount.urls', 'hitcount'), namespace='hitcount')),
 ] 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

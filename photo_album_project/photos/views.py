@@ -13,7 +13,20 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import TestModelForm
 from bootstrap_modal_forms.generic import BSModalCreateView, BSModalFormView, BSModalReadView
 from django.urls import reverse_lazy
+from hitcount.views import HitCountDetailView
 # Create your views here.
+import os
+from django.conf import settings
+from django.http import HttpResponse, Http404
+
+def download(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="image/jpeg")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
 
 # test bs modal form
 
@@ -31,6 +44,7 @@ class PostDashboardListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'photos/dashboard.html'
     context_object_name = 'photos'
+    
     def get_queryset(self):
         return Post.objects.filter(author_id=self.request.user)
     

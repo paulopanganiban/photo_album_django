@@ -1,1 +1,3 @@
-
+.env
+secret_key.txt
+photo_album_project_app_config

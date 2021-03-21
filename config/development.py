@@ -6,16 +6,16 @@ import os
 # Override base.py settings here
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEBUG = True
-ALLOWED_HOSTS = ['photo-album-project.eba-nqmsu5pk.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['photo-album-project.eba-nqmsu5pk.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'NAME': os.environ.get('RDS_DB_NAME'),
+        'USER': os.environ.get('RDS_USERNAME'),
+        'PASSWORD': os.environ.get('RDS_PASSWORD'),
+        'HOST': os.environ.get('RDS_HOSTNAME'),
+        'PORT': os.environ.get('RDS_PORT')
     }
 }
 # change directory of stored images

@@ -1,0 +1,9 @@
+{
+    "SECRET_KEY": "sgw2=riy-y!5qm$0&g)3$s00-mu(o5wa$rcz*)a4rh=%b1qf#1",
+    "DEBUG" : "True",
+    "DB_NAME" :  "photo_album_project",
+    "DB_USER":  "OLO",
+    "DB_PASSWORD": "qftavagzxc1",
+    "DB_HOST" : "127.0.0.1",
+    "DB_PORT" : "5432"
+}

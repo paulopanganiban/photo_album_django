@@ -4,15 +4,16 @@ branch-defaults:
     group_suffix: null
   development:
     environment: photo-album-project
+    group_suffix: null
 environment-defaults:
   photo-album-project:
     branch: null
     repository: null
 global:
-  application_name: photo_album_project
+  application_name: photo-album-project
   branch: null
   default_ec2_keyname: null
-  default_platform: Python 3.6 running on 64bit Amazon Linux
+  default_platform: Python 3.6
   default_region: us-west-2
   include_git_submodules: true
   instance_profile: null

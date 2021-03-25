@@ -6,7 +6,7 @@ import os
 # Override base.py settings here
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEBUG = True
-ALLOWED_HOSTS = ['photo-album-project.eba-nqmsu5pk.us-west-2.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOSTS = ['photo-album-project.eba-rqzv6arb.us-west-2.elasticbeanstalk.com']
 SECRET_KEY = os.environ['SECRET_KEY']
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {

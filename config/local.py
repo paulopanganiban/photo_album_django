@@ -6,7 +6,7 @@ from decouple import config
 # Override base.py settings here
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEBUG = True
-ALLOWED_HOSTS = ['photo-album-project.eba-nqmsu5pk.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['localhost','photo-album-project.eba-nqmsu5pk.us-west-2.elasticbeanstalk.com']
 
 DATABASES = {
     'default': {

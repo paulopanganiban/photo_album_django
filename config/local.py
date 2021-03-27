@@ -2,6 +2,7 @@
 # conda activate djphoto2.1
 from .base import *
 import os
+from decouple import config
 # Override base.py settings here
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEBUG = True
